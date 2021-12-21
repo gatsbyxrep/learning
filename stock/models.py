@@ -44,6 +44,7 @@ class AccountStock(models.Model):
     stock = models.ForeignKey(Stock, on_delete=models.CASCADE)
     amount = models.IntegerField(default=0)
     average_buy_cost = models.DecimalField(null=True, blank=True, decimal_places=2, max_digits=6)
+    
     class Meta:
         unique_together = ['account', 'stock']
     def __str__(self):

@@ -6,3 +6,4 @@ six==1.16.0
 virtualenv==20.7.2
 gunicorn
 django-heroku
+Pillow
