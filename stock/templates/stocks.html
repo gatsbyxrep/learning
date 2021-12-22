@@ -21,8 +21,7 @@
                 <td>{{ stock.name }}</td>
                 <td>
 					{{ stock.get_random_price }} {{ stock.currency.sign }}
-					<a href="{% url 'stock:detail' stock.pk %}">Купить</a> <!-- ссылка на страницу с формой покупки -->
-					<a href="{% url 'stock:detail' stock.pk %}">Продать</a> <!-- ссылка на страницу с формой покупки -->
+					<a href="{% url 'stock:detail' stock.pk %}">Купить/Продать</a> <!-- ссылка на страницу с формой покупки -->
 				</td>
             </tr>
         {% endfor %}

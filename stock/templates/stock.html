@@ -1,13 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
     <div>
-        Акции {{ stock.name }} ({{ stock.ticker }}) <img src="{{ MEDIA_URL }}/{{ stock.logo }}" width="40" />
-    </div>
+		<div>
+			<h4>Денежные средства</h4>
+			{% for acc_currency in currencies %}
+				<div>{{ acc_currency.amount }}{{ acc_currency.sign }}</div>
+			{% endfor %}
+		</div>
+		Сейчас на аккаунте: {{amount }} акций {{ stock.name }} ({{ stock.ticker }})  <img src="{{ MEDIA_URL }}/{{ stock.logo }}"  width="40" />
+		<BR>
+		Акция торгуется в валюте: {{ stock.currency.name }} {{ stock.currency }}
+	</div>
+	<hr>
     <div>
+		Покупка
         <form method="POST" action="{% url 'stock:buy' stock.pk %}">
             {% csrf_token %}
-            {{ form }}
+            {{ buyForm }}
             <button>Купить</button>
+        </form>
+    </div>
+	<div>
+		Продажа
+        <form method="POST" action="{% url 'stock:sell' stock.pk %}">
+            {% csrf_token %}
+            {{ sellForm }}
+            <button>Продать</button>
         </form>
     </div>
     <div>

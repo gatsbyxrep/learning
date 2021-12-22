@@ -9,7 +9,7 @@
     <div>
         <h4>Акции</h4>
         {% for acc_stock in stocks %}
-            <div>{{ acc_stock.ticker }} - {{ acc_stock.amount }} - {{ acc_stock.avg }}</div>
+            <div>Название: {{ acc_stock.ticker }} Количество: {{ acc_stock.amount }} Средня цена покупки: {{ acc_stock.avg }}</div>
         {% endfor %}
     </div>
     <div>
